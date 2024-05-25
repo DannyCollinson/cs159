@@ -4,6 +4,9 @@ openai_api_key
 # Data
 data
 
+# Results
+output
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
