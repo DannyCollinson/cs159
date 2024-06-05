@@ -83,7 +83,9 @@ def format_input(
     y = []
     picks = rng.choice(np.arange(len(data)), replace=False, size=num_samples)
     for i in range(num_samples):
-        x = x + mol[picks[i]] + ' ' + prot[picks[i]] # + ' \n'
+        x = x + mol[picks[i]] + ' ' + prot[picks[i]]
+        if num_samples > 1:
+            x = x + ' \n'
         y.append(kd[picks[i]])
     return (x, y)
 
