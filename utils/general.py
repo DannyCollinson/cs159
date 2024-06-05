@@ -136,8 +136,8 @@ def score_predictions(pred: list[float], true: list[float]) -> float:
         f'but only {len(true)} ground truth values.'
     )
     assert len(pred) >= len(true), (
-        f'There are {len(pred)} ground truth values, '
-        f'but only {len(true)} predictions.'
+        f'There are {len(true)} ground truth values, '
+        f'but only {len(pred)} predictions.'
     )
     return np.corrcoef(pred, true[:len(pred)])[0,1]
     
@@ -223,8 +223,8 @@ if __name__ == '__main__':
         true.extend(y)
         if i % 100 == 99:
             print(i+1)
-            pickle.dump(preds, open(f'./output/preds_{i+1}', 'wb'))
-            pickle.dump(true, open(f'./output/true_{i+1}', 'wb'))            
+            pickle.dump(preds, open(f'./output/preds_{i+1}_log', 'wb'))
+            pickle.dump(true, open(f'./output/true_{i+1}_log', 'wb'))            
 
     score = score_predictions(preds, true)
     log_score = score_predictions(np.log(preds), true)
